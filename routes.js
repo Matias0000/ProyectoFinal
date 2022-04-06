@@ -1,23 +1,28 @@
 const {Router} = require('express');
+const express= require('express')
 const fs =require('fs');
 const { stringify } = require('querystring');
 
 const router = Router();
-
-let lectura = fs.readFileSync('./productos.json');
-let conversion = JSON.parse(lectura)
-let mostrar = JSON.stringify(conversion)
-let admin = true;
+const app = express();
 
 
-router.get('/', (req, res) => {
-    // idItem=1;
-    // let datas =conversion.map(lm =>({...lm, id:idItem++}))
-    // console.log(datas)
-    res.send(conversion)
-})
 
-router.post('/', async (req,res)=>{
+
+
+let admin =false;
+if(admin){
+    app.use('/api/productos', router)
+    let lectura = fs.readFileSync('./productos.json');
+    let conversion = JSON.parse(lectura)
+    let mostrar = JSON.stringify(conversion)
+        router.get('/', (req, res) => {
+                // idItem=1;
+                // let datas =conversion.map(lm =>({...lm, id:idItem++}))
+                // console.log(datas)
+                res.send(conversion)
+            })
+        router.post('/', async (req,res)=>{
         const nuevaPersona =req.body
             let contenido = await fs.promises.readFile('./productos.json', 'utf-8')
             contenido=JSON.parse(contenido)
@@ -31,49 +36,7 @@ router.post('/', async (req,res)=>{
             res.send('post ok')
         });
 
-//  router('/productos')
-//     .get((req,res)=>{
-//         res.send(conversion)
-//     })
-//     .post((req,res)=>{
-//         const nuevaPersona =req.body
-//         let idItem=1;
-//         conversion.push(nuevaPersona)
-//         conversion = conversion.map(lm => ({...lm, id:idItem++}))
-//     console.log(conversion)                    
-//         res.send('post ok')
-//     })
-// .put((req,res)=>{
-    
-// })
-// .delete((req,res)=>{
 
-// })
-
-
-// router.post('/api/productos',(req,res)=>{
-//     const nuevaPersona =req.body
-//         let idItem=1;
-//         lectura.push(nuevaPersona)
-//         lectura = conversion.map(lm => ({...lm, id:idItem++}))
-//       // console.log(Ncontenido)                
-
-//         res.send('post ok')
-// //    const Nproducto=req.body
-// //    productos.push(Nproducto)
-// //    res.send('post OK')
-// })
-// update(id, body){
-//    const product = {
-//        title: body.title,
-//        price: body.price,
-//        thumbnail: "https://via.placeholder.com/150",
-//        id: id
-//    } ;
-//    const updateIndex = this.products.findIndex((producto) => producto.id == id);
-//    this.products[updateIndex] = product;
-//    return product;
-// }
 
 router.delete('/:id', async (req,res)=>{
         const id=req.params.id
@@ -134,13 +97,31 @@ router.put('/:id', async(req, res) => {
 // res.send({Producto:product,Cambio:actulizacion})
 
 })
+}
+else{
+    app.use('/api/carrito',router);
+    let carrito= fs.readFileSync('./carrito.json');
+    let cambio = JSON.parse(carrito);
 
+router.get('/',(req,res)=>{
+    res.send(cambio)
+});
+
+router.post('/:id/productos',(req,res)=>{});
+
+router.put('/productos/:id',(req,res)=>{});
+
+router.delete('/:id/:id_prod',(req,res)=>{});
+}
 
 // router.get('/productos',(req,res)=>{});
 // router.get('/productos/:id',(req,res)=>{});
 // router.post('/productos',(req,res)=>{});
 // router.put('/productos/:id',(req,res)=>{});
 // router.delete('/productos/:id',(req,res)=>{});
+
+
+
 
 
 module.exports= router;

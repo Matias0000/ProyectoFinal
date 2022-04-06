@@ -90,5 +90,12 @@
     "precio": 120,
     "stock": 6,
     "id": 10
+  },
+  {
+    "nombre": "prueba",
+    "id": 11
+  },
+  {
+    "id": 12
   }
 ]
