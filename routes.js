@@ -26,11 +26,11 @@ if(admin){
             let cantidad=Object.values(contenido)
             cantidad.push(nuevoProducto);
             let idItem=1;
-            let mostrar = cantidad.map(lm => ({...lm, id:idItem++,timestamp: new Date().toLocaleString()}))
+            let mostrar = cantidad.map(lm => ({id:idItem++, ...lm, timestamp: new Date().toLocaleString()}))
             // console.log(mostrar);
             await fs.promises.writeFile('./productos.json', JSON.stringify(mostrar,null,2))
         // console.log(conversion)                    
-            res.send('post ok')
+            res.send('Elemento agregado a productos')
         });
 
 
@@ -112,7 +112,8 @@ router.post('/', async (req,res)=>{
         let cantidad=Object.values(contenido)
         cantidad.push(nuevoCarrito);
         let idItem=1;
-        let mostrar = cantidad.map(lm => ({...lm, id:idItem++, timestamp: new Date().toLocaleString()}))
+        // let mostrar = cantidad.map(lm => ({...lm, id:idItem++, timestamp: new Date().toLocaleString()}))
+        let mostrar = cantidad.map(lm => ({id:idItem++, ...lm,timestamp: new Date().toLocaleString()}))
         
         // console.log(mostrar);
         await fs.promises.writeFile('./carrito.json', JSON.stringify(mostrar,null,2))
@@ -142,21 +143,25 @@ router.get('/:id/productos',(req,res)=>{
 });
 
 router.post('/:id/productos', async (req,res)=>{
+
+        class Carrito{
+            constructor(contenido){
+            this.contenido=[];
+        }
+        }
         const carrito =req.params.id
         let contenido = await fs.promises.readFile('./carrito.json', 'utf-8')
         let productos = await fs.promises.readFile('./productos.json','utf-8');
         contenido=JSON.parse(contenido)
         productos=JSON.parse(productos)
-        productos=JSON.stringify(productos)
-        // let vista1 = Object.values(productos)
-        // let vista = contenido.map( bus => ({...bus, productos }));
-        // vista= JSON.parse(vista);
+        Carrito.contenido=JSON.stringify({productos})
+
         let cantidad=Object.values(contenido)
         let idItem=1;
-        let mostrar = cantidad.map(lm => ({...lm, id:idItem++, timestamp: new Date().toLocaleString(),
-        productos}))
+        let mostrar = cantidad.map(lm => ({id:idItem++, ...lm,  timestamp: new Date().toLocaleString(),
+        productos:Carrito.contenido}))
         
-        // await fs.promises.writeFile('./carrito.json', JSON.stringify(mostrar,null,2))
+        await fs.promises.writeFile('./carrito.json', JSON.stringify(mostrar,null,2))
         res.send(console.log(mostrar))
 });
 
