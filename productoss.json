@@ -1,0 +1,124 @@
+[
+  {
+    "nombre": "router",
+    "descripcion": "wifi6",
+    "codigo": 30,
+    "thumbnail": "www.router.com",
+    "precio": 10,
+    "stock": 10,
+    "id": 1
+  },
+  {
+    "nombre": "router",
+    "descripcion": "wifi6",
+    "codigo": 30,
+    "thumbnail": "www.router.com",
+    "precio": 10,
+    "stock": 10,
+    "id": 2
+  },
+  {
+    "nombre": "router",
+    "descripcion": "wifi6",
+    "codigo": 30,
+    "thumbnail": "www.router.com",
+    "precio": 10,
+    "stock": 10,
+    "id": 3
+  },
+  {
+    "nombre": "tazaCuphead",
+    "descripcion": "gamer",
+    "codigo": 12,
+    "thumbnail": "www.cuphead.com",
+    "precio": 120,
+    "stock": 5,
+    "id": 4
+  },
+  {
+    "nombre": "tazaCuphead",
+    "descripcion": "gamer",
+    "codigo": 12,
+    "thumbnail": "www.cuphead.com",
+    "precio": 120,
+    "stock": 5,
+    "id": 5
+  },
+  {
+    "nombre": "tazaCuphead",
+    "descripcion": "gamer",
+    "codigo": 12,
+    "thumbnail": "www.cuphead.com",
+    "precio": 120,
+    "stock": 5,
+    "id": 6
+  },
+  {
+    "nombre": "router",
+    "descripcion": "wifi6",
+    "codigo": 30,
+    "thumbnail": "www.router.com",
+    "precio": 10,
+    "stock": 20,
+    "id": 7
+  },
+  {
+    "nombre": "tazaCuphead",
+    "descripcion": "gamer",
+    "codigo": 12,
+    "thumbnail": "www.cuphead.com",
+    "precio": 120,
+    "stock": 6,
+    "id": 8
+  },
+  {
+    "nombre": "tazaCuphead",
+    "descripcion": "gamer",
+    "codigo": 12,
+    "thumbnail": "www.cuphead.com",
+    "timestamp": "10:10:10",
+    "precio": 120,
+    "stock": 6,
+    "id": 9
+  },
+  {
+    "nombre": "tazaCuphead",
+    "descripcion": "gamer",
+    "codigo": 12,
+    "thumbnail": "www.cuphead.com",
+    "timestamp": "10:10:10",
+    "precio": 120,
+    "stock": 6,
+    "id": 10
+  },
+  {
+    "nombre": "router",
+    "descripcion": "wifi6",
+    "codigo": 30,
+    "thumbnail": "www.router.com",
+    "timestamp": "5/4/2022 23:32:12",
+    "precio": 10,
+    "stock": 20,
+    "id": 11
+  },
+  {
+    "nombre": "router",
+    "descripcion": "wifi6",
+    "codigo": 30,
+    "thumbnail": "www.router.com",
+    "timestamp": "5/4/2022 23:34:23",
+    "precio": 10,
+    "stock": 20,
+    "id": 12
+  },
+  {
+    "nombre": "router",
+    "descripcion": "wifi6",
+    "codigo": 30,
+    "thumbnail": "www.router.com",
+    "timestamp": "5/4/2022 23:37:39",
+    "precio": 10,
+    "stock": 20,
+    "id": 13
+  }
+]

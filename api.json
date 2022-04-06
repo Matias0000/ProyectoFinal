@@ -1,0 +1,20 @@
+[
+    {
+    "id":0,
+    "nombre":"",
+    "descripcion":"",
+    "codigo":0,
+    "thumbnail":"",
+    "precio":0,
+    "stock":0
+},
+    {
+        "id":1,
+        "nombre":"compu ",
+        "descripcion":"es una compu",
+        "codigo":1111,
+        "thumbnail":"www.compu",
+        "precio":10000,
+        "stock":10
+    }
+]
