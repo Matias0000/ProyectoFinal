@@ -167,7 +167,20 @@ router.post('/:id/productos', async (req,res)=>{
 
 
 
-router.delete('/:id/productos/:id_prod',(req,res)=>{
+router.delete('/:id/productos/:id_prod', async (req,res)=>{
+    const id=req.params.id
+    let data= JSON.parse(await fs.promises.readFile('./carrito.json'))
+    if( id < cambio.length+1){
+        if(id ==0){
+            res.send({error:'id no encotrado'})
+        }else{
+    const nData = data.splice(id-1,1) 
+    await fs.promises.writeFile('./carritoBor.json',JSON.stringify(data,null,2))
+    res.send({"Carrito eliminado":nData})
+}
+    }else{
+    res.send({Error:'Carrito no encontrado'})
+    }  
 
 });
 }
