@@ -7,9 +7,6 @@ const router = Router();
 const app = express();
 
 
-
-
-
 let admin =false;
 if(admin){
     app.use('/api/productos', router)
@@ -23,13 +20,13 @@ if(admin){
                 res.send(conversion)
             })
         router.post('/', async (req,res)=>{
-        const nuevaPersona =req.body
+        const nuevoProducto =req.body
             let contenido = await fs.promises.readFile('./productos.json', 'utf-8')
             contenido=JSON.parse(contenido)
             let cantidad=Object.values(contenido)
-            cantidad.push(nuevaPersona);
+            cantidad.push(nuevoProducto);
             let idItem=1;
-            let mostrar = cantidad.map(lm => ({...lm, id:idItem++}))
+            let mostrar = cantidad.map(lm => ({...lm, id:idItem++,timestamp: new Date().toLocaleString()}))
             // console.log(mostrar);
             await fs.promises.writeFile('./productos.json', JSON.stringify(mostrar,null,2))
         // console.log(conversion)                    
@@ -99,19 +96,75 @@ router.put('/:id', async(req, res) => {
 })
 }
 else{
-    app.use('/api/carrito',router);
-    let carrito= fs.readFileSync('./carrito.json');
-    let cambio = JSON.parse(carrito);
+
+app.use('/api/carrito',router);
+let carrito= fs.readFileSync('./carrito.json');
+let cambio = JSON.parse(carrito);
 
 router.get('/',(req,res)=>{
     res.send(cambio)
 });
 
-router.post('/:id/productos',(req,res)=>{});
+router.post('/', async (req,res)=>{
+    const nuevoCarrito =req.body
+        let contenido = await fs.promises.readFile('./carrito.json', 'utf-8')
+        contenido=JSON.parse(contenido)
+        let cantidad=Object.values(contenido)
+        cantidad.push(nuevoCarrito);
+        let idItem=1;
+        let mostrar = cantidad.map(lm => ({...lm, id:idItem++, timestamp: new Date().toLocaleString()}))
+        
+        // console.log(mostrar);
+        await fs.promises.writeFile('./carrito.json', JSON.stringify(mostrar,null,2))
+    // console.log(conversion)                    
+   res.send('post ok carrito con id')
 
-router.put('/productos/:id',(req,res)=>{});
+});
 
-router.delete('/:id/:id_prod',(req,res)=>{});
+router.delete('/:id', async (req,res)=>{
+    const id=req.params.id
+    let data= JSON.parse(await fs.promises.readFile('./carrito.json'))
+    if( id < cambio.length+1){
+        if(id ==0){
+            res.send({error:'id no encotrado'})
+        }else{
+    const nData = data.splice(id-1,1) 
+    await fs.promises.writeFile('./carrito.json',JSON.stringify(data,null,2))
+    res.send({"Carrito eliminado":nData})
+}
+    }else{
+    res.send({Error:'Carrito no encontrado'})
+    }  
+    })
+
+router.get('/:id/productos',(req,res)=>{
+    res.send(cambio)
+});
+
+router.post('/:id/productos', async (req,res)=>{
+        const carrito =req.params.id
+        let contenido = await fs.promises.readFile('./carrito.json', 'utf-8')
+        let productos = await fs.promises.readFile('./productos.json','utf-8');
+        contenido=JSON.parse(contenido)
+        productos=JSON.parse(productos)
+        productos=JSON.stringify(productos)
+        // let vista1 = Object.values(productos)
+        // let vista = contenido.map( bus => ({...bus, productos }));
+        // vista= JSON.parse(vista);
+        let cantidad=Object.values(contenido)
+        let idItem=1;
+        let mostrar = cantidad.map(lm => ({...lm, id:idItem++, timestamp: new Date().toLocaleString(),
+        productos}))
+        
+        // await fs.promises.writeFile('./carrito.json', JSON.stringify(mostrar,null,2))
+        res.send(console.log(mostrar))
+});
+
+
+
+router.delete('/:id/productos/:id_prod',(req,res)=>{
+
+});
 }
 
 // router.get('/productos',(req,res)=>{});

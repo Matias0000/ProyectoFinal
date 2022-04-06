@@ -1,6 +1,5 @@
 const express = require('express');
 const fs= require('fs');
-const Mensajes = require('./Datos.js');
 // const carrito = require('./carrito.js')
 // const multer= require('multer');
 const app = express();
@@ -14,20 +13,14 @@ app.use(express.json())
 app.use(express.urlencoded({extended:true}))
 
 
-const mensajes = new Mensajes('mensajes.json')
-
 app.get('/',async (req, res) => {
     let messange = await mensajes.getAll();
     res.send('index.html',{messange});
 });
 
-let admin =false;
-if(admin){
-    app.use('/api/productos', routes)
-    
-}else{
-    app.use('/api/carrito',routes);
-}
+
+app.use('/api/productos', routes)
+app.use('/api/carrito',routes);   
 
 
 
