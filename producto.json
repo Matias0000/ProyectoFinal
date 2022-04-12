@@ -1,0 +1,12 @@
+[
+    {
+      "id": 1,
+      "nombre": "Componente",
+      "codigo": 9,
+      "thumbnail": "www.componentes.com",
+      "precio": 10,
+      "stock": 3000,
+      "descripcion": "Prueba 1000 de cuero",
+      "timestamp": "8/4/2022 07:51:25"
+    }   
+  ]

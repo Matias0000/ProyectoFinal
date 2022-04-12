@@ -2,7 +2,7 @@
   {
     "id": 1,
     "nombre": "prueba",
-    "timestamp": "11/4/2022 06:09:48",
+    "timestamp": "11/4/2022 02:23:49",
     "productos": [
       {
         "id": 1,
@@ -49,7 +49,7 @@
   {
     "id": 2,
     "nombre": "prueba",
-    "timestamp": "11/4/2022 06:09:48",
+    "timestamp": "11/4/2022 02:23:49",
     "productos": [
       {
         "id": 1,
@@ -66,7 +66,7 @@
   {
     "id": 3,
     "nombre": "prueba2",
-    "timestamp": "11/4/2022 06:09:48",
+    "timestamp": "11/4/2022 02:23:49",
     "productos": [
       {
         "id": 1,
@@ -90,6 +90,16 @@
       },
       {
         "id": 3,
+        "nombre": "tazaCuphead",
+        "codigo": 12,
+        "thumbnail": "www.cuphead.com",
+        "precio": 120,
+        "stock": 60,
+        "descripcion": "gamer",
+        "timestamp": "7/4/2022 05:06:10"
+      },
+      {
+        "id": 4,
         "nombre": "Gabinete",
         "codigo": 10,
         "thumbnail": "www.corsair.com",
@@ -103,10 +113,20 @@
   {
     "id": 4,
     "nombre": "Kart",
-    "timestamp": "11/4/2022 06:09:48",
+    "timestamp": "11/4/2022 02:23:49",
     "productos": [
       {
         "id": 1,
+        "nombre": "Billetera",
+        "codigo": 250,
+        "thumbnail": "www.lacoste.com",
+        "precio": 100,
+        "stock": 20,
+        "descripcion": "Billetera de cuero",
+        "timestamp": "8/4/2022 07:51:25"
+      },
+      {
+        "id": 2,
         "nombre": "router",
         "descripcion": "wifi6",
         "codigo": 30,
@@ -116,7 +136,7 @@
         "stock": 20
       },
       {
-        "id": 2,
+        "id": 3,
         "nombre": "tazaCuphead",
         "codigo": 12,
         "thumbnail": "www.cuphead.com",
@@ -126,7 +146,7 @@
         "timestamp": "7/4/2022 05:06:10"
       },
       {
-        "id": 3,
+        "id": 4,
         "nombre": "Gabinete",
         "codigo": 10,
         "thumbnail": "www.corsair.com",
@@ -140,7 +160,7 @@
   {
     "id": 5,
     "nombre": "Nuevito",
-    "timestamp": "11/4/2022 06:09:48",
+    "timestamp": "11/4/2022 02:23:49",
     "productos": [
       {
         "id": 1,
@@ -157,79 +177,16 @@
   {
     "id": 6,
     "nombre": "Prueba",
-    "timestamp": "11/4/2022 06:09:48",
-    "productos": [
-      {
-        "id": 1,
-        "nombre": "Componente",
-        "codigo": 9,
-        "thumbnail": "www.componentes.com",
-        "precio": 10,
-        "stock": 3000,
-        "descripcion": "Prueba 1000 de cuero",
-        "timestamp": "8/4/2022 07:51:25"
-      }
-    ]
+    "timestamp": "11/4/2022 02:23:49"
   },
   {
     "id": 7,
     "nombre": "Prueba",
-    "timestamp": "11/4/2022 06:09:48",
-    "productos": [
-      {
-        "id": 1,
-        "nombre": "Componente",
-        "codigo": 9,
-        "thumbnail": "www.componentes.com",
-        "precio": 10,
-        "stock": 3000,
-        "descripcion": "Prueba 1000 de cuero",
-        "timestamp": "8/4/2022 07:51:25"
-      },
-      [
-        {
-          "id": 1,
-          "nombre": "Componente",
-          "codigo": 9,
-          "thumbnail": "www.componentes.com",
-          "precio": 10,
-          "stock": 3000,
-          "descripcion": "Prueba 1000 de cuero",
-          "timestamp": "8/4/2022 07:51:25"
-        }
-      ]
-    ]
+    "timestamp": "11/4/2022 02:23:49"
   },
   {
     "id": 8,
     "nombre": "Prueba",
-    "timestamp": "11/4/2022 06:09:48"
-  },
-  {
-    "id": 9,
-    "nombre": "Ultimo",
-    "timestamp": "11/4/2022 06:09:48",
-    "productos": [
-      {
-        "id": 1,
-        "nombre": "Billetera",
-        "codigo": 250,
-        "thumbnail": "www.lacoste.com",
-        "precio": 100,
-        "stock": 20,
-        "descripcion": "Billetera de cuero",
-        "timestamp": "8/4/2022 07:51:25"
-      },
-      {
-        "id": 2,
-        "nombre": "tazaCuphead",
-        "codigo": 12,
-        "thumbnail": "www.cuphead.com",
-        "precio": 120,
-        "stock": 60,
-        "descripcion": "gamer",
-        "timestamp": "7/4/2022 05:06:10"
-      }
-    ]
+    "timestamp": "11/4/2022 02:23:49"
   }
 ]
