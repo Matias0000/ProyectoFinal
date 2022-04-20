@@ -9,7 +9,7 @@ const app = express();
 
 /* Pa poder probar se necesita poner el let admin=false o true */
 
-let admin =false;
+let admin =true;
 if(admin){
     // app.use('/api/productos', router)
     let lectura = fs.readFileSync('./productos.json');
