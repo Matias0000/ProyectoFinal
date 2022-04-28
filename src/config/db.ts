@@ -1,8 +1,11 @@
 import mongoose from 'mongoose';
+import {mogodb} from '../../key'
+
+
 
 export const connectDb = async () => {
   try {
-    await mongoose.connect("mongodb+srv://Matias:coderhouse@cluster0.asa9o.mongodb.net/Productos");
+    await mongoose.connect(mogodb.URI, {});
   } catch (error) {
     console.error(error);
   }

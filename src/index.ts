@@ -13,7 +13,7 @@ const startServer = async () => {
   const app = await createApp();
 
   const server = http.createServer(app).listen(PORT, () => {
-    console.log(`Corriendo en http://localhost:${PORT}`);
+    console.log(`Corriendo en ${PORT}`);
   });
 
   server.on('error', (err) => {
